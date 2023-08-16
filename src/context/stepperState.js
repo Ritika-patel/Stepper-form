@@ -71,9 +71,6 @@ const StepperState = (props) => {
   };
 
 
-  useEffect(() => {
-    handleError();
-  }, [credentials.name, credentials.email, credentials.phone, credentials.plan]);
 
 
   const handleNextStep =  () => {
@@ -89,7 +86,10 @@ const StepperState = (props) => {
       setCurrentStep(currentStep + 1);
     }
   };
-  
+  useEffect(() => {
+    handleError();
+  }, [handleNextStep]);
+
 
 
 

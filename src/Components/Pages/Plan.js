@@ -3,8 +3,6 @@ import stepperContext from "../../context/stepperContext";
 
 
 
-
-
 const Plan = () => {
   const SpanflexError = "text-red-600 text-sm h-2 mt-2 ";
   const context = useContext(stepperContext);
