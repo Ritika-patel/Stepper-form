@@ -228,11 +228,46 @@ const StepperState = (props) => {
       Price: 15,
     },
   ];
-  // PLAN END
+  // PLAN 
+  
+
+
+  const [submitted, setSubmitted] = useState(false);
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+    alert(`Hey ${credentials.name}, your form has been submitted`);
+  };
+
+  const UpdateAddOns = (x) => {
+    let newPrice = credentials.price;
+  
+    if (x === 'isLargerStorage') {
+      newPrice += credentials.isLargerStorage ? -2 : 2; // Subtract 2 if already true
+    } else if (x === 'isCustomizableProfile') {
+      newPrice += credentials.isCustomizableProfile ? -2 : 2; // Subtract 2 if already true
+    } else if (x === 'isOnlineService') {
+      newPrice += credentials.isOnlineService ? -1 : 1; // Subtract 1 if already true
+    }
+  
+    setCredentials((credentials) => ({
+      ...credentials,
+      [x]: !credentials[x],
+      price: newPrice,
+    }));
+  
+    console.log(credentials);
+  };
+
+  
 
   return (
     <StepperContext.Provider
       value={{
+        UpdateAddOns,
+        submitted, setSubmitted,
+        handleSubmit,
         handleStep,
         planError,
         nameError,

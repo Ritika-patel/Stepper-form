@@ -7,16 +7,12 @@ import Summary from "../Components/Pages/Summary";
 import Thanks from "../Components/Pages/Thanks";
 
 const Form = () => {
-  const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitted(true);
-    alert(`Hey ${credentials.name}, your form has been submitted`);
-  };
+
+
 
   const context = useContext(stepperContext);
-  const { credentials, currentStep, handleGoBack, handleNextStep } = context;
+  const {submitted, setSubmitted, handleSubmit, credentials, currentStep, handleGoBack, handleNextStep } = context;
 
   let currentStepComponent;
   switch (currentStep) {

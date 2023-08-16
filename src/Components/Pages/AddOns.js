@@ -3,27 +3,8 @@ import stepperContext from "../../context/stepperContext";
 
 const AddOns = () => {
   const context = useContext(stepperContext);
-  const { onChange, credentials, setCredentials, AddOnsData } = context;
+  const { UpdateAddOns, onChange, credentials, setCredentials, AddOnsData } = context;
 
-  const UpdateAddOns = (x) => {
-    let newPrice = credentials.price;
-  
-    if (x === 'isLargerStorage') {
-      newPrice += credentials.isLargerStorage ? -2 : 2; // Subtract 2 if already true
-    } else if (x === 'isCustomizableProfile') {
-      newPrice += credentials.isCustomizableProfile ? -2 : 2; // Subtract 2 if already true
-    } else if (x === 'isOnlineService') {
-      newPrice += credentials.isOnlineService ? -1 : 1; // Subtract 1 if already true
-    }
-  
-    setCredentials((credentials) => ({
-      ...credentials,
-      [x]: !credentials[x],
-      price: newPrice,
-    }));
-  
-    console.log(credentials);
-  };
 
   return (
     <div className="mt-5 h-[450px] lg:h-auto ">

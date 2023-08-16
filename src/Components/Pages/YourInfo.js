@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 import stepperContext from "../../context/stepperContext";
-import validator from "validator";
 const flexError = "flex text-center space-between my-4";
 const SpanflexError = "text-red-600 text-sm absolute mt-4 right-[35px] ";
 const Textinput =
@@ -10,10 +9,6 @@ const YourInfo = () => {
 
   const context = useContext(stepperContext);
   const {nameError, emailError, phoneError, onChange, credentials, setCredentials, currentStep, handleGoBack, handleNextStep, handleSubmit } = context;
-
-
-
-
 
 
   return (
