@@ -19,7 +19,7 @@ const AddOns = () => {
             <div
               key={data.id}
               className={`hover:border-[#473dff] flex p-4 rounded-[10px] border border-gray-300 justify-between items-center ${
-                credentials[data.temp] ? 'border-[#473dff] ' : ''
+                credentials[data.temp] ? 'border-[#473dff]' : ''
               }`}
               // className={`hover:border-[#473dff] flex p-4 rounded-[10px] border border-gray-300 justify-between items-center`}
             >
