@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import StepperContext from "./stepperContext";
 
 const StepperState = (props) => {
-  //new
+  //CREDENTIALS START
   const [credentials, setCredentials] = useState({
     name: "",
     email: "",
@@ -14,7 +14,17 @@ const StepperState = (props) => {
     isOnlineService: false,
     price: 0,
   });
-  //new
+
+  const onChange = (e) => {
+    setCredentials({
+      ...credentials,
+      [e.target.name]: e.target.value,
+    });
+    console.log(credentials);
+  };
+  //CREDENTIALS END
+
+  //HANDELING EACH STEP BUTTONS START
 
   const [currentStep, setCurrentStep] = useState(1);
   const steps = [
@@ -29,8 +39,9 @@ const StepperState = (props) => {
       setCurrentStep(currentStep - 1);
     }
   };
-  const [error, setError] = useState(false);
 
+
+  //HANDELING ERROR START
   const [nameError, setNameError] = useState("");
   const [emailError, setEmailError] = useState(" ");
   const [phoneError, setPhoneError] = useState(" ");
@@ -70,6 +81,7 @@ const StepperState = (props) => {
     }
   };
 
+  //HANDELING ERROR END
 
 
 
@@ -121,13 +133,19 @@ const StepperState = (props) => {
     }
   };
 
-  const onChange = (e) => {
-    setCredentials({
-      ...credentials,
-      [e.target.name]: e.target.value,
-    });
-    console.log(credentials);
+  const [submitted, setSubmitted] = useState(false);
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+    alert(`Hey ${credentials.name}, your form has been submitted`);
   };
+
+
+
+  //HANDELING EACH STEP BUTTONS END
+
+
 
   // ADD ONS START
   const AddOnsData = [
@@ -153,6 +171,26 @@ const StepperState = (props) => {
       temp: "isCustomizableProfile",
     },
   ];
+
+  const UpdateAddOns = (x) => {
+    let newPrice = credentials.price;
+  
+    if (x === 'isLargerStorage') {
+      newPrice += credentials.isLargerStorage ? -2 : 2; // Subtract 2 if already true
+    } else if (x === 'isCustomizableProfile') {
+      newPrice += credentials.isCustomizableProfile ? -2 : 2; // Subtract 2 if already true
+    } else if (x === 'isOnlineService') {
+      newPrice += credentials.isOnlineService ? -1 : 1; // Subtract 1 if already true
+    }
+  
+    setCredentials((credentials) => ({
+      ...credentials,
+      [x]: !credentials[x],
+      price: newPrice,
+    }));
+  
+    console.log(credentials);
+  };
 
   // ADD OND END
 
@@ -232,33 +270,7 @@ const StepperState = (props) => {
   
 
 
-  const [submitted, setSubmitted] = useState(false);
-  
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitted(true);
-    alert(`Hey ${credentials.name}, your form has been submitted`);
-  };
 
-  const UpdateAddOns = (x) => {
-    let newPrice = credentials.price;
-  
-    if (x === 'isLargerStorage') {
-      newPrice += credentials.isLargerStorage ? -2 : 2; // Subtract 2 if already true
-    } else if (x === 'isCustomizableProfile') {
-      newPrice += credentials.isCustomizableProfile ? -2 : 2; // Subtract 2 if already true
-    } else if (x === 'isOnlineService') {
-      newPrice += credentials.isOnlineService ? -1 : 1; // Subtract 1 if already true
-    }
-  
-    setCredentials((credentials) => ({
-      ...credentials,
-      [x]: !credentials[x],
-      price: newPrice,
-    }));
-  
-    console.log(credentials);
-  };
 
   
 
