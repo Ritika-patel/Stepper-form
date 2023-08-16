@@ -32,6 +32,10 @@ h1 {
   }
 }
 
-/* #display {  
-   background-image: url(./assets/bg-sidebar-desktop.svg);
- } */
+#display {  
+   background-image: url(./assets//bg.svg);
+   background-repeat: no-repeat;
+   background-position: bottom;   
+ }
+
+ 

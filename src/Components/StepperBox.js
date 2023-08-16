@@ -9,11 +9,11 @@ const StepperBox = () => {
     <div
       id="display"
       className="
-      lg:w-[274px] lg:h-[568px]  lg:mx-0 lg:pl-7
+      lg:w-[274px] lg:h-[568px]  lg:mx-0 lg:pl-7 
       w-[375px]  bg-[#1e10ba] mx-auto lg:rounded-[10px]" 
     >
       <div className="
-      lg:h-[270px] lg:flex-col lg:w-auto lg:mx-0
+      lg:h-[270px] lg:flex-col lg:w-auto lg:mx-0 
       mx-auto w-[180px] h-[130px] mt-10  bg-[rgba(220,20,60,0)] flex justify-between">
         {steps.map((step) => (
           <div
