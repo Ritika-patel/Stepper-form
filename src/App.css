@@ -35,7 +35,8 @@ h1 {
 #display {  
    background-image: url(./assets//bg.svg);
    background-repeat: no-repeat;
-   background-position: bottom;   
+   background-position: center bottom 20px;
+
  }
 
  
