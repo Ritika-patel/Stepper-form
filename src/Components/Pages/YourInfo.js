@@ -60,7 +60,7 @@ const YourInfo = () => {
           value={credentials.phone}
           className={Textinput}
           id="infoNumber"
-          placeholder="e.g. +1 234 567 890"
+          placeholder="e.g. 8989898989"
         />
       </div>
 
